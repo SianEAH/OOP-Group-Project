@@ -9,5 +9,5 @@ package watersanitationgame.Ending_Jesse;
  * THIS CLASS ONLY EXISTS SO THAT YOU CAN UNDERSTAND FILE STRUCUTRE
  */
 public class Test {
-    private int num;
+    
 }
