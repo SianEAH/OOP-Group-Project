@@ -39,7 +39,7 @@ public class EndingGUI extends javax.swing.JFrame {
         endingTA.setBackground(new java.awt.Color(237, 236, 236));
         endingTA.setColumns(20);
         endingTA.setRows(5);
-        endingTA.setText("This is the ending text will display here.\n\n");
+        endingTA.setText("The ending text will display here.\n\n");
         endingTA.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(endingTA);
 
