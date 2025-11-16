@@ -18,7 +18,6 @@ public class ResultsGUI extends javax.swing.JFrame {
     public ResultsGUI() {
         initComponents();
         counter = 1;
-        
         eventTA.setText("This is the event text for event "+counter);
         choiceTA.setText("This is your choice for event "+counter);
         explainTA.setText("This is the explanation for event "+counter);
@@ -128,10 +127,13 @@ public class ResultsGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBTNActionPerformed
-        counter--;
-        eventTA.setText("This is the event text for event "+counter);
-        choiceTA.setText("This is your choice for event "+counter);
-        explainTA.setText("This is the explanation for event "+counter);
+        if (counter > 1){
+        
+            counter--;
+            eventTA.setText("This is the event text for event "+counter);
+            choiceTA.setText("This is your choice for event "+counter);
+            explainTA.setText("This is the explanation for event "+counter);
+        }
     }//GEN-LAST:event_backBTNActionPerformed
 
     private void closeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBTNActionPerformed
@@ -139,11 +141,18 @@ public class ResultsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_closeBTNActionPerformed
 
     private void nextBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBTNActionPerformed
-        counter++;
-        eventTA.setText("This is the event text for event "+counter);
-        choiceTA.setText("This is your choice for event "+counter);
-        explainTA.setText("This is the explanation for event "+counter);
 
+        if (counter < 3)
+        {
+            counter++;
+            eventTA.setText("This is the event text for event "+counter);
+            choiceTA.setText("This is your choice for event "+counter);
+            explainTA.setText("This is the explanation for event "+counter);
+        }else{
+            this.setVisible(false);
+        }
+        
+           
     }//GEN-LAST:event_nextBTNActionPerformed
 
     /**
