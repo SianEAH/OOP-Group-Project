@@ -8,6 +8,8 @@ package watersanitation;
  *
  * @author Sian
  */
+import watersanitationgame.Events_Nikolas.EventsGUI;
+
 public class ConfirmDetailsGUI extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ConfirmDetailsGUI.class.getName());
@@ -57,6 +59,11 @@ public class ConfirmDetailsGUI extends javax.swing.JFrame {
         confirmCountyLBL.setText("Country:");
 
         confirmBTN.setText("Confirm");
+        confirmBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,6 +129,13 @@ public class ConfirmDetailsGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void confirmBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBTNActionPerformed
+        // TODO add your handling code here:
+        EventsGUI n = new EventsGUI();
+        n.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_confirmBTNActionPerformed
 
     /**
      * @param args the command line arguments
