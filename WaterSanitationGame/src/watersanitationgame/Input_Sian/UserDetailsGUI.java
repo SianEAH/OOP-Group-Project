@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package watersanitation;
+package watersanitationgame.Input_Sian;
 
 /**
  *
@@ -36,6 +36,7 @@ public class UserDetailsGUI extends javax.swing.JFrame {
         ageTF = new javax.swing.JTextField();
         genderTF = new javax.swing.JTextField();
         countryTF = new javax.swing.JTextField();
+        SubmitBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +51,13 @@ public class UserDetailsGUI extends javax.swing.JFrame {
 
         countryLBL.setFont(new java.awt.Font("sansserif", 1, 17)); // NOI18N
         countryLBL.setText("Country:");
+
+        SubmitBTN.setText("Submit");
+        SubmitBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,6 +82,10 @@ public class UserDetailsGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(nameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(69, 69, 69))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(243, 243, 243)
+                .addComponent(SubmitBTN)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,11 +106,20 @@ public class UserDetailsGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(countryLBL)
                     .addComponent(countryTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(SubmitBTN)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SubmitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitBTNActionPerformed
+        // TODO add your handling code here:
+        ConfirmDetailsGUI cdg = new ConfirmDetailsGUI();
+        cdg.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_SubmitBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,6 +147,7 @@ public class UserDetailsGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton SubmitBTN;
     private javax.swing.JLabel ageLBL;
     private javax.swing.JTextField ageTF;
     private javax.swing.JLabel countryLBL;

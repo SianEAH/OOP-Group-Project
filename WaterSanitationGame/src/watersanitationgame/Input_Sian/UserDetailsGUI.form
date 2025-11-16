@@ -48,6 +48,11 @@
                   </Group>
               </Group>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
+              <Component id="SubmitBTN" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -73,7 +78,9 @@
                   <Component id="countryLBL" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="countryTF" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="88" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="SubmitBTN" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -118,6 +125,14 @@
     <Component class="javax.swing.JTextField" name="genderTF">
     </Component>
     <Component class="javax.swing.JTextField" name="countryTF">
+    </Component>
+    <Component class="javax.swing.JButton" name="SubmitBTN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Submit"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SubmitBTNActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

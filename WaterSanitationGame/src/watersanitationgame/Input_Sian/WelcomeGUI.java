@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package watersanitation;
+package watersanitationgame.Input_Sian;
 
 /**
  *
@@ -42,6 +42,11 @@ public class WelcomeGUI extends javax.swing.JFrame {
         welcomeTA.setViewportView(messageTA);
 
         startBTN.setText("Start");
+        startBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,6 +74,13 @@ public class WelcomeGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void startBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBTNActionPerformed
+        // TODO add your handling code here:
+        UserDetailsGUI udg = new UserDetailsGUI();
+        udg.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_startBTNActionPerformed
 
     /**
      * @param args the command line arguments
