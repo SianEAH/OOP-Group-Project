@@ -6,12 +6,12 @@ package watersanitationgame;
  */
 
 //imports
-import watersanitationgame.Ending_Jesse.endingGUI;
+import  watersanitationgame.Input_Sian.WelcomeGUI;
 
 public class WaterSanitationApp {
     public static void main(String[] args) {
-        //code below is test for synchronising packages
-        endingGUI g = new endingGUI();
-        g.setVisible(true);
+        //Start first GUI
+        WelcomeGUI w = new WelcomeGUI();
+        w.setVisible(true);
     }
 }
