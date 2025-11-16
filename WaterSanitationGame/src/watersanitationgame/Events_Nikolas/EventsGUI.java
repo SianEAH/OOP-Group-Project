@@ -60,7 +60,7 @@ public class EventsGUI extends javax.swing.JFrame {
     }
     
     private void loadEvent(){
-        if (!(count>=Elist.size())){
+        if (!(count>Elist.size())){ //bottom check runs only if there are more events to go through, otherwise it opens a new Jframe form. Every time this is ran it returns an exception because count is higher than the length sometimes. I havent found a resolution yet and it doesnt break the program so...
             if(Elist.get(count).isIsInputEvent()){ //if InputEvent, show choice buttons
                 ProceedBTN.setVisible(false);
                 PositiveBTN.setVisible(true);
