@@ -7,17 +7,22 @@ package watersanitationgame.Events_Nikolas;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import watersanitationgame.Save;
 
 
 public class EventsGUI extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EventsGUI.class.getName());
-
-    ArrayList<EventOb> Elist;
+    //variables
+    ArrayList<EventOb> Elist; //
+    ArrayList<Save> slist;
     private int count;
-    private boolean loaded;
+    private boolean loaded; //tracks wether event data(text) has been loaded in
     
     public EventsGUI() {
         initComponents();
@@ -26,6 +31,7 @@ public class EventsGUI extends javax.swing.JFrame {
         loaded=false;
         PositiveBTN.setVisible(false);
         NegativeBTN.setVisible(false);
+        slist = new ArrayList<>();
     }
     
     private void loadEventData(){
@@ -57,6 +63,16 @@ public class EventsGUI extends javax.swing.JFrame {
             System.out.println("Error code: " + e);
         }
         loaded=true;
+    }
+    
+    private void LoadSaveFile(){
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Saves.dat"))){
+            slist = (ArrayList<Save>)ois.readObject();
+        }catch(FileNotFoundException ex){
+            System.out.println("error, no save file exists. error: " + ex);
+        } catch (IOException | ClassNotFoundException ex) {
+            System.out.println("error class not found: " + ex);
+        }  
     }
     
     private void loadEvent(){
@@ -167,7 +183,7 @@ public class EventsGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ProceedBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProceedBTNActionPerformed
-        // TODO add your handling code here:
+        // If event data(text and input type) not loaded, load it in from the txt file
         if (!loaded){
             loadEventData();
         }
