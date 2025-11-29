@@ -4,7 +4,10 @@ package watersanitationgame;
  *
  * @author Nikolas Misins
  */
-public class Save {
+
+import java.io.Serializable;
+
+public class Save implements Serializable{
     //data members
     private String name, gender, country;
     private int age;
