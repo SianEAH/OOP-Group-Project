@@ -8,6 +8,8 @@ package watersanitationgame.Input_Sian;
  *
  * @author Sian
  */
+//image of tap gotten from here: https://www.flaticon.com/free-icons/faucet
+
 public class WelcomeGUI extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(WelcomeGUI.class.getName());
@@ -28,48 +30,85 @@ public class WelcomeGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        welcomeTA = new javax.swing.JScrollPane();
-        messageTA = new javax.swing.JTextArea();
+        backgroundPNL = new javax.swing.JPanel();
         startBTN = new javax.swing.JButton();
+        exitBTN = new javax.swing.JButton();
+        titleTF = new javax.swing.JTextField();
+        imageLBL = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        messageTA.setColumns(20);
-        messageTA.setFont(messageTA.getFont().deriveFont(messageTA.getFont().getStyle() | java.awt.Font.BOLD, messageTA.getFont().getSize()+7));
-        messageTA.setLineWrap(true);
-        messageTA.setRows(5);
-        messageTA.setText("Do you have what it takes to \nbe a water sanitation manager?");
-        welcomeTA.setViewportView(messageTA);
+        backgroundPNL.setBackground(new java.awt.Color(51, 204, 255));
 
+        startBTN.setBackground(new java.awt.Color(204, 204, 204));
+        startBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         startBTN.setText("Start");
+        startBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         startBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startBTNActionPerformed(evt);
             }
         });
 
+        exitBTN.setBackground(new java.awt.Color(204, 204, 204));
+        exitBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        exitBTN.setText("Exit");
+        exitBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        exitBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBTNActionPerformed(evt);
+            }
+        });
+
+        titleTF.setBackground(new java.awt.Color(51, 204, 255));
+        titleTF.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        titleTF.setText("Can you be a good water sanitation manager?");
+
+        imageLBL.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sian\\OneDrive\\Documents\\Object Orientated Programming\\water-tap.png")); // NOI18N
+
+        javax.swing.GroupLayout backgroundPNLLayout = new javax.swing.GroupLayout(backgroundPNL);
+        backgroundPNL.setLayout(backgroundPNLLayout);
+        backgroundPNLLayout.setHorizontalGroup(
+            backgroundPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundPNLLayout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(startBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(exitBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(164, 164, 164))
+            .addGroup(backgroundPNLLayout.createSequentialGroup()
+                .addGroup(backgroundPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(backgroundPNLLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(titleTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(backgroundPNLLayout.createSequentialGroup()
+                        .addGap(340, 340, 340)
+                        .addComponent(imageLBL)))
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+        backgroundPNLLayout.setVerticalGroup(
+            backgroundPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPNLLayout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addComponent(titleTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(imageLBL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(backgroundPNLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(exitBTN)
+                    .addComponent(startBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(welcomeTA, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
-                        .addComponent(startBTN)))
-                .addContainerGap(89, Short.MAX_VALUE))
+            .addComponent(backgroundPNL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(welcomeTA, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(startBTN)
-                .addContainerGap(73, Short.MAX_VALUE))
+            .addComponent(backgroundPNL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -77,10 +116,17 @@ public class WelcomeGUI extends javax.swing.JFrame {
 
     private void startBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBTNActionPerformed
         // TODO add your handling code here:
-        UserDetailsGUI udg = new UserDetailsGUI();
-        udg.setVisible(true);
+        //When the start button is pressed, procede to the SummaryGUI
+        SummaryGUI sum = new SummaryGUI();
+        sum.setVisible(true);
         dispose();
     }//GEN-LAST:event_startBTNActionPerformed
+
+    private void exitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTNActionPerformed
+        // TODO add your handling code here:
+        //when the exit button is clicked, the JFrame becomes invisible
+        dispose();
+    }//GEN-LAST:event_exitBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,8 +154,10 @@ public class WelcomeGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea messageTA;
+    private javax.swing.JPanel backgroundPNL;
+    private javax.swing.JButton exitBTN;
+    private javax.swing.JLabel imageLBL;
     private javax.swing.JButton startBTN;
-    private javax.swing.JScrollPane welcomeTA;
+    private javax.swing.JTextField titleTF;
     // End of variables declaration//GEN-END:variables
 }
