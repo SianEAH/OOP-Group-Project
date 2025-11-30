@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 public class Save implements Serializable{
     //data members
-    private String name, gender, country;
+    private String name, gender, country, saveName;
     private int age, gameScore;
     
     //see getter methods below for story explanation of each of these flags
@@ -42,6 +42,10 @@ public class Save implements Serializable{
 
     public int getAge() {
         return age;
+    }
+    
+    public String getSaveName(){
+        return saveName;
     }
     //below here are the specific story choices that the player did. True is always something good job-wise, and false is selfish and anti-job
     
@@ -94,7 +98,9 @@ public class Save implements Serializable{
         this.stayedInOffice = stayedInOffice;
     }
     
-    
+    public void setSaveName(String saveName){
+        this.saveName = saveName;
+    }
     
     
 }
