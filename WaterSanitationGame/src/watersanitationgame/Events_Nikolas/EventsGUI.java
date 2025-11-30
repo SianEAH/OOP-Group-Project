@@ -83,11 +83,14 @@ public class EventsGUI extends javax.swing.JFrame {
     }
     
     private void loadEvent(){
+        System.out.println(count);
         if ((count<Elist.size())){ //bottom check runs only if there are more events to go through, otherwise it opens a new Jframe form
             if(Elist.get(count).isIsInputEvent()){ //if InputEvent, show choice buttons
+                
                 ProceedBTN.setVisible(false);
                 PositiveBTN.setVisible(true);
                 NegativeBTN.setVisible(true);
+                
                 PositiveBTN.setText(Elist.get(count).getBtnPos());
                 NegativeBTN.setText(Elist.get(count).getBtnNeg());
             }else{ //show proceed button
@@ -110,16 +113,30 @@ public class EventsGUI extends javax.swing.JFrame {
     private void updatePos(){
         loadSaveFile();
         slist.get(saveIndex).setGameScore( slist.get(saveIndex).getGameScore() - 10 );
+        updateDecisions(true);
         saveToFile();
     }
     
     private void updateNeg(){
         loadSaveFile();
         slist.get(saveIndex).setGameScore( slist.get(saveIndex).getGameScore() - 10 );
+        updateDecisions(false);
         saveToFile();
     }
     
-    //save slist to file
+    //updates the save file with SPECIFIC infortmation about what the user chose to do
+    private void updateDecisions(boolean choice){
+        switch(count){ //switch case 0 is the default event you start with, and 1 is the first event in the .txt
+            case 2:
+                slist.get(saveIndex).setBeganSafetyInspections(choice);
+                break;
+            case 1:
+                //
+                break;
+        }
+    }
+    
+    //save slist to file Saves.dat
     private void saveToFile(){
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Saves.dat"))){
             oos.writeObject(slist);
@@ -159,14 +176,14 @@ public class EventsGUI extends javax.swing.JFrame {
             }
         });
 
-        PositiveBTN.setText("resolve the issue");
+        PositiveBTN.setText("positive");
         PositiveBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PositiveBTNActionPerformed(evt);
             }
         });
 
-        NegativeBTN.setText("ignore it, there are more important things at hand");
+        NegativeBTN.setText("negative");
         NegativeBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NegativeBTNActionPerformed(evt);
@@ -181,20 +198,17 @@ public class EventsGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(140, 140, 140)
-                                .addComponent(PositiveBTN))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(163, 163, 163)
-                                .addComponent(ProceedBTN)))
+                        .addGap(163, 163, 163)
+                        .addComponent(ProceedBTN)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(NegativeBTN)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NegativeBTN)
+                    .addComponent(PositiveBTN))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -204,11 +218,11 @@ public class EventsGUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ProceedBTN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PositiveBTN)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(NegativeBTN)
-                .addGap(20, 20, 20))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -223,12 +237,12 @@ public class EventsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ProceedBTNActionPerformed
 
     private void PositiveBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PositiveBTNActionPerformed
-        updatePos();
+        updatePos(); //updates user score positively
         loadEvent();
     }//GEN-LAST:event_PositiveBTNActionPerformed
 
     private void NegativeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NegativeBTNActionPerformed
-        updateNeg();
+        updateNeg(); //updates user score negatively
         loadEvent();
     }//GEN-LAST:event_NegativeBTNActionPerformed
 
