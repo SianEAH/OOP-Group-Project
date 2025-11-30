@@ -16,17 +16,18 @@ public class ResultsGUI extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ResultsGUI.class.getName());
     private int counter;
     private Save currentSave;
+    private Boolean pastSave;
     EndingCalculation endingCalculation;
     /**
      * Creates new form resultsGUI
      * @param save
      */
-    public ResultsGUI(Save save) {
+    public ResultsGUI(Save save, Boolean past) {
         initComponents();
         currentSave = save;
         counter = 1;
         endingCalculation = EndingCalculation.getINSTANCE();
-        
+        pastSave = past;
         displayText();
         
     }
@@ -125,7 +126,7 @@ public class ResultsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_backBTNActionPerformed
 
     private void closeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBTNActionPerformed
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_closeBTNActionPerformed
 
     private void nextBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBTNActionPerformed
@@ -138,15 +139,23 @@ public class ResultsGUI extends javax.swing.JFrame {
             counter++;
             displayText();
         }else{
-            choice1 = JOptionPane.showConfirmDialog(null, "Do you want to save your results?");
-            if (choice1 == 0){
-                saveName = JOptionPane.showInputDialog("What do you want to name your save?");
-            }
-            
-            choice2 = JOptionPane.showConfirmDialog(null, "Do you want to quit?", null , 1);
+            if (!pastSave){
+                choice1 = JOptionPane.showConfirmDialog(null, "Do you want to save your results?");
+                if (choice1 == 0){
+                    saveName = JOptionPane.showInputDialog("What do you want to name your save?");
+                    currentSave.setSaveName(saveName);
+                    endingCalculation.getsList().add(currentSave);
+                    
+                    endingCalculation.save();
+                }
 
-            if (choice2 == 0){
-                System.exit(0);
+                choice2 = JOptionPane.showConfirmDialog(null, "Do you want to quit?", null , 1);
+
+                if (choice2 == 0){
+                    System.exit(0);
+                }
+            }else{
+                dispose();
             }
 
         }

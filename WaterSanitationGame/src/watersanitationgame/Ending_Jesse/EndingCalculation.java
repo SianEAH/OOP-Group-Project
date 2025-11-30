@@ -21,7 +21,7 @@ import watersanitationgame.Save;
 public final class  EndingCalculation {
     private Save save;
     private String endingType;
-    ArrayList<Save> sList = new ArrayList<>();
+    private ArrayList<Save> sList = new ArrayList<>();
     public EndingCalculation() {
         
     }
@@ -83,9 +83,6 @@ public final class  EndingCalculation {
         }catch(IOException e){
             System.out.println("Io Exception on load "+e);
         }
-        
-        
-        sList.add(save);
     }
 
     public void save(){

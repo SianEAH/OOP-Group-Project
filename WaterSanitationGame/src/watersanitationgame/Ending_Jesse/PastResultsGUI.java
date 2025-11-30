@@ -31,7 +31,6 @@ public class PastResultsGUI extends javax.swing.JFrame {
         initComponents();
         endingCalculation = EndingCalculation.getInstance();
         sList = endingCalculation.getsList();
-        save();
         selectedSave = null;
     }
 
@@ -196,17 +195,22 @@ public class PastResultsGUI extends javax.swing.JFrame {
     private void displayBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayBTNActionPerformed
 
         
-        for (Save tempS: sList){
-            if (sList.indexOf(tempS) != saveIndex)
+        if (sList.size() < 1){
+            displayTA.setText("There are no saves");
+            
+        }else{
+            for (Save tempS: sList){
+                
                 if (displaySaveJOption(tempS)){
                     break;
                 }
-            
+
+            }
         }
     }//GEN-LAST:event_displayBTNActionPerformed
 
     private void viewBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBTNActionPerformed
-        ResultsGUI resultsGUI = new ResultsGUI(selectedSave);
+        ResultsGUI resultsGUI = new ResultsGUI(selectedSave, true);
         resultsGUI.setVisible(true);
     }//GEN-LAST:event_viewBTNActionPerformed
 
