@@ -9,9 +9,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import watersanitationgame.Save;
 
@@ -21,8 +23,8 @@ public class EventsGUI extends javax.swing.JFrame {
     //variables
     ArrayList<EventOb> Elist; //
     ArrayList<Save> slist;
-    private int count;
-    private boolean loaded; //tracks wether event data(text) has been loaded in
+    private int count, saveIndex;
+    private boolean loaded; //tracks whether event data(text) has been loaded in
     
     public EventsGUI() {
         initComponents();
@@ -34,28 +36,32 @@ public class EventsGUI extends javax.swing.JFrame {
         slist = new ArrayList<>();
     }
     
+    //one time function that only runs to load in data regarding each event
     private void loadEventData(){
         File f;
         FileReader fr;
         BufferedReader br;
-        String fileData;
+        String textData,posBtnText,negBtnText;
         try{
             f = new File("eventDetails.txt");
             fr = new FileReader(f);
             br = new BufferedReader(fr);
-            fileData = br.readLine();
-            while(fileData != null){
-                if (fileData.equalsIgnoreCase("input")){
-                    fileData = br.readLine();
-                    EventOb e = new EventOb(true, fileData,count);
+            textData = br.readLine();
+            while(textData != null){
+                if (textData.equalsIgnoreCase("input")){
+                    //in the eventDetails.txt, data follows this format, line by line: isInputEvent->EventText->positiveButtonText->NegativeButtonText
+                    textData = br.readLine();
+                    posBtnText = br.readLine();
+                    negBtnText = br.readLine();
+                    EventOb e = new EventOb(true, textData,count,posBtnText,negBtnText);
                     Elist.add(e);
                 }else{
-                    fileData = br.readLine();
-                    EventOb e = new EventOb(false, fileData,count);
+                    textData = br.readLine();
+                    EventOb e = new EventOb(false, textData,count);
                     Elist.add(e);
                 }
                 count+=1;
-                fileData = br.readLine();
+                textData = br.readLine();
             }
             br.close(); 
             count=0;
@@ -65,7 +71,8 @@ public class EventsGUI extends javax.swing.JFrame {
         loaded=true;
     }
     
-    private void LoadSaveFile(){
+    //loads saved data file, is called multiple times throughout program
+    private void loadSaveFile(){
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Saves.dat"))){
             slist = (ArrayList<Save>)ois.readObject();
         }catch(FileNotFoundException ex){
@@ -81,6 +88,8 @@ public class EventsGUI extends javax.swing.JFrame {
                 ProceedBTN.setVisible(false);
                 PositiveBTN.setVisible(true);
                 NegativeBTN.setVisible(true);
+                PositiveBTN.setText(Elist.get(count).getBtnPos());
+                NegativeBTN.setText(Elist.get(count).getBtnNeg());
             }else{ //show proceed button
                 ProceedBTN.setVisible(true);
                 PositiveBTN.setVisible(false);
@@ -97,6 +106,29 @@ public class EventsGUI extends javax.swing.JFrame {
         count+=1;
     }
     
+    //these 2 functions increase or decrease player score depending on what kind of choice the made
+    private void updatePos(){
+        loadSaveFile();
+        slist.get(saveIndex).setGameScore( slist.get(saveIndex).getGameScore() - 10 );
+        saveToFile();
+    }
+    
+    private void updateNeg(){
+        loadSaveFile();
+        slist.get(saveIndex).setGameScore( slist.get(saveIndex).getGameScore() - 10 );
+        saveToFile();
+    }
+    
+    //save slist to file
+    private void saveToFile(){
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Saves.dat"))){
+            oos.writeObject(slist);
+        } catch (FileNotFoundException ex) {
+            System.getLogger(EventsGUI.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        } catch (IOException ex) {
+            System.getLogger(EventsGUI.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+    }
     
     
     @SuppressWarnings("unchecked")
@@ -191,12 +223,12 @@ public class EventsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ProceedBTNActionPerformed
 
     private void PositiveBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PositiveBTNActionPerformed
-        // TODO add your handling code here:
+        updatePos();
         loadEvent();
     }//GEN-LAST:event_PositiveBTNActionPerformed
 
     private void NegativeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NegativeBTNActionPerformed
-        // TODO add your handling code here:
+        updateNeg();
         loadEvent();
     }//GEN-LAST:event_NegativeBTNActionPerformed
 
