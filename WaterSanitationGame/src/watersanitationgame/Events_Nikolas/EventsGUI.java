@@ -116,7 +116,7 @@ public class EventsGUI extends javax.swing.JFrame {
     //these 2 functions increase or decrease player score depending on what kind of choice the made
     private void updatePos(){
         loadSaveFile();
-        slist.get(saveIndex).setGameScore( slist.get(saveIndex).getGameScore() - 10 );
+        slist.get(saveIndex).setGameScore( slist.get(saveIndex).getGameScore() + 10 );
         updateDecisions(true);
         saveToFile();
     }
