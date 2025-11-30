@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class Save implements Serializable{
     //data members
     private String name, gender, country;
-    private int age;
+    private int age, gameScore;
     
     
     private boolean tookBribeX, tookBribeY, eventC; //TODO: write in individual booleans for events, line is largely for exampleza
@@ -21,9 +21,13 @@ public class Save implements Serializable{
         this.gender = gender;
         this.country = country;
         this.age = age;
+        gameScore = 50; //gameScore from 0-100, 0 being the worst and 100 being exemplary
     }
     
     //getters
+    public int getGameScore(){
+        return gameScore;
+    }
     public String getName() {
         return name;
     }
@@ -41,5 +45,8 @@ public class Save implements Serializable{
     }
     
     //setters
+    public void setGameScore(int s){
+        this.gameScore = s;
+    }
     
 }
