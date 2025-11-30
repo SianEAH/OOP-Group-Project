@@ -26,7 +26,7 @@ public class EventsGUI extends javax.swing.JFrame {
     private int count, saveIndex;
     private boolean loaded; //tracks whether event data(text) has been loaded in
     
-    public EventsGUI() {
+    public EventsGUI(int saveIndex) {
         initComponents();
         count=0;
         Elist = new ArrayList<>();
@@ -34,6 +34,11 @@ public class EventsGUI extends javax.swing.JFrame {
         PositiveBTN.setVisible(false);
         NegativeBTN.setVisible(false);
         slist = new ArrayList<>();
+        this.saveIndex = saveIndex;
+    }
+
+    private EventsGUI() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     //one time function that only runs to load in data regarding each event
@@ -83,7 +88,6 @@ public class EventsGUI extends javax.swing.JFrame {
     }
     
     private void loadEvent(){
-        System.out.println(count);
         if ((count<Elist.size())){ //bottom check runs only if there are more events to go through, otherwise it opens a new Jframe form
             if(Elist.get(count).isIsInputEvent()){ //if InputEvent, show choice buttons
                 
@@ -102,7 +106,7 @@ public class EventsGUI extends javax.swing.JFrame {
             EventTextTA.setText(Elist.get(count).printEventDetails());
         }else{
             //open new Jframe form
-            LastEventGUI leg = new LastEventGUI();
+            LastEventGUI leg = new LastEventGUI(saveIndex);
             leg.setVisible(true);
             dispose();
         }
@@ -130,8 +134,17 @@ public class EventsGUI extends javax.swing.JFrame {
             case 2:
                 slist.get(saveIndex).setBeganSafetyInspections(choice);
                 break;
-            case 1:
-                //
+            case 3:
+                slist.get(saveIndex).setInterviewAnswer(choice);
+                break;
+            case 5:
+                slist.get(saveIndex).setRedirectedWater(choice);
+                break;
+            case 10:
+                slist.get(saveIndex).setTookBribe(choice);
+                break;
+            case 12:
+                slist.get(saveIndex).setStayedInOffice(choice);
                 break;
         }
     }

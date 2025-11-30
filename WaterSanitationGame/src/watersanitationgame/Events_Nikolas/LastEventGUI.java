@@ -14,8 +14,14 @@ import watersanitationgame.Ending_Jesse.EndingGUI;
 public class LastEventGUI extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LastEventGUI.class.getName());
 
-    public LastEventGUI() {
+    private int saveIndex;
+    public LastEventGUI(int saveIndex) {
+        this.saveIndex=saveIndex;
         initComponents();
+    }
+
+    private LastEventGUI() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -76,7 +82,7 @@ public class LastEventGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ProceedBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProceedBTNActionPerformed
-        EndingGUI section3 = new EndingGUI();
+        EndingGUI section3 = new EndingGUI(saveIndex);
         section3.setVisible(true);
         dispose();
         
