@@ -10,6 +10,7 @@ package watersanitationgame.Input_Sian;
  */
 import javax.swing.JOptionPane; 
 import watersanitationgame.Events_Nikolas.EventsGUI;
+import watersanitationgame.Save;
 public class NewUserGUI extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NewUserGUI.class.getName());
@@ -20,9 +21,9 @@ public class NewUserGUI extends javax.swing.JFrame {
     //Creating my userDetails object
     private UserDetails userDetails;
     
-    public NewUserGUI() {
+    public NewUserGUI(UserDetails ud) {
         initComponents();
-        userDetails = new UserDetails(); //Initialise in my constructor, need the info from here
+        this.userDetails = ud; //Initialise in my constructor, need the info from here
     }
 
     /**
@@ -222,19 +223,16 @@ public class NewUserGUI extends javax.swing.JFrame {
         Gender g = new Gender(genderTF.getText());
         Country c = new Country(countryTF.getText());
         
-        //Set the information
+        //Update my object (for the next section)
         userDetails.setName(nme);
         userDetails.setAge(a);
         userDetails.setGender(g);
         userDetails.setCountry(c);
-        
-        //Save to the ArrayList
-        userDetails.saveToArray();
 
         //When the submit button is clicked, we proceed onto the ConfirmDetailsGUI
         //New:
-        ConfirmDetailsGUI confirmForm = new ConfirmDetailsGUI(userDetails);
-        confirmForm.setVisible(true);
+        ConfirmDetailsGUI cf = new ConfirmDetailsGUI(userDetails);
+        cf.setVisible(true);
         dispose();
     }//GEN-LAST:event_SubmitBTNActionPerformed
 
@@ -263,7 +261,6 @@ public class NewUserGUI extends javax.swing.JFrame {
         ageTF.setText("");
         genderTF.setText("");
         countryTF.setText("");
-
     }//GEN-LAST:event_clearBTNActionPerformed
 
     /**
@@ -288,7 +285,7 @@ public class NewUserGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new NewUserGUI().setVisible(true));
+        //java.awt.EventQueue.invokeLater(() -> new NewUserGUI().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

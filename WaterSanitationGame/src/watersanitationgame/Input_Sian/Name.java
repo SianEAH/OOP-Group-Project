@@ -33,7 +33,7 @@ public class Name {
     //Objects have to become Strings
     @Override
     public String toString() {
-        return name; // now prints the actual name
+        return name; 
     }
     
     

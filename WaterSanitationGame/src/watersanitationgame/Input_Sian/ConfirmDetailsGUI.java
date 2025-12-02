@@ -9,6 +9,7 @@ package watersanitationgame.Input_Sian;
  * @author Sian
  */
 import watersanitationgame.Events_Nikolas.EventsGUI;
+import watersanitationgame.Save;
 
 public class ConfirmDetailsGUI extends javax.swing.JFrame {
     
@@ -23,6 +24,7 @@ public class ConfirmDetailsGUI extends javax.swing.JFrame {
     public ConfirmDetailsGUI(UserDetails userDetails) { //the values i need it to take from my userDetails
         initComponents();
         this.userDetails = userDetails;
+        //Setting the fields to the info previously entered
         confirmNameTF.setText(userDetails.getName().getName());
         confirmAgeTF.setText(String.valueOf(userDetails.getAge().getAge()));
         confirmGenderTF.setText(userDetails.getGender().getGender());
@@ -179,6 +181,27 @@ public class ConfirmDetailsGUI extends javax.swing.JFrame {
 
     private void confirmBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmBTNActionPerformed
         // TODO add your handling code here:
+        //When the confirm button is pressed, add the user details to the ArrayList
+        //Proceed to the next JFrame
+        //Get out information
+        
+        //Create a new Save
+        Save s = new Save(
+        userDetails.getName().getName(),
+        userDetails.getGender().getGender(),
+        userDetails.getCountry().getCountry(),
+        userDetails.getAge().getAge()
+        );
+        
+        //Check if the user exists
+        
+        //Now add it to the ArrayList
+        userDetails.getSlist().add(s);
+        
+        //Save the file
+        userDetails.saveToFile();
+        
+        //Go to the next JFrame
         EventsGUI e = new EventsGUI(0);  //EventsGUI recquires a parameter
         e.setVisible(true);
         this.dispose(); //close the window
@@ -187,8 +210,8 @@ public class ConfirmDetailsGUI extends javax.swing.JFrame {
 
     private void backBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBTNActionPerformed
         // TODO add your handling code here:
-        //When the back button is clicked, we go back to either UserSearchGUI or the previous frame the user was on
-        NewUserGUI nu = new NewUserGUI();
+        //When the back button is clicked, we go back to NewUserGUI
+        NewUserGUI nu = new NewUserGUI(userDetails);
         nu.setVisible(true);
         dispose();
     }//GEN-LAST:event_backBTNActionPerformed

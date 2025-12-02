@@ -70,9 +70,18 @@ public class UserDetails {
     }
     
     //my other methods
+    //loading the file
+    public void loadFromFile() {
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Saves.dat"))) {
+        slist = (ArrayList<Save>) ois.readObject();
+    } catch (Exception e) {
+        slist = new ArrayList<>();
+    }
+}
+
     
     //saving to the saves.dat file: file handling
-    private void saveToFile() {
+    public void saveToFile() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Saves.dat"))) {
             oos.writeObject(slist);
         } catch (IOException e) {
@@ -80,32 +89,9 @@ public class UserDetails {
         }
     }
     
-    //saving to my ArrayList
-    public void saveToArray() {
-    Save save = new Save(
-    name.toString(),   
-    gender.toString(),  
-    country.toString(), 
-    age.getAge()        
-    );
-    
-    //check if the list is empty
-    if (slist.isEmpty()) {
-    slist.add(save);
-    } else {
-        slist.set(0,save); //the index it's saving at and what it's saving
-    }
-    
-    //Save to the actual file
-    saveToFile();
-    
-    }
-    
     //make my list available
     public ArrayList<Save> getSlist() {
     return slist;
-}
-
-    
+}  
     
 }

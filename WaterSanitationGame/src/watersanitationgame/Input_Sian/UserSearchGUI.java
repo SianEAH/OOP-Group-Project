@@ -15,8 +15,12 @@ public class UserSearchGUI extends javax.swing.JFrame {
     /**
      * Creates new form UserSearch
      */
+    private UserDetails userDetails; //UserDetails object
+    
     public UserSearchGUI() {
         initComponents();
+        userDetails = new UserDetails(); //new instance
+        userDetails.loadFromFile(); //load my file
     }
 
     /**
@@ -138,7 +142,7 @@ public class UserSearchGUI extends javax.swing.JFrame {
     private void newUserBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newUserBTNActionPerformed
         // TODO add your handling code here:
         //When the new user button is clicked, it will go to the NewUserGUI
-        NewUserGUI nu = new NewUserGUI();
+        NewUserGUI nu = new NewUserGUI(userDetails);
         nu.setVisible(true);
         dispose();
     }//GEN-LAST:event_newUserBTNActionPerformed
@@ -146,8 +150,8 @@ public class UserSearchGUI extends javax.swing.JFrame {
     private void returningUserBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returningUserBTNActionPerformed
         // TODO add your handling code here:
         //When the returning user button is clicked, it will go the ReturningUserGUI
-        UserDetails ud = new UserDetails(); //this will need info from userDetails, create an instance
-        ReturningUserGUI ret = new ReturningUserGUI(ud);
+        userDetails.loadFromFile(); //load the saved file to read
+        ReturningUserGUI ret = new ReturningUserGUI(userDetails); //has to take in info from here
         ret.setVisible(true);
         dispose();
     }//GEN-LAST:event_returningUserBTNActionPerformed
