@@ -5,6 +5,7 @@
 package watersanitationgame.Ending_Jesse;
 
 import javax.swing.JOptionPane;
+import watersanitationgame.Input_Sian.WelcomeGUI;
 import watersanitationgame.Save;
 
 /**
@@ -126,6 +127,7 @@ public class ResultsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_backBTNActionPerformed
 
     private void closeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBTNActionPerformed
+        
         this.dispose();
     }//GEN-LAST:event_closeBTNActionPerformed
 
@@ -153,8 +155,13 @@ public class ResultsGUI extends javax.swing.JFrame {
 
                 if (choice2 == 0){
                     System.exit(0);
+                }else  if (choice2 == 1) {
+                    WelcomeGUI welcomeGUI = new WelcomeGUI();
+                    welcomeGUI.setVisible(true);
+                    dispose();
                 }
             }else{
+                
                 dispose();
             }
 

@@ -134,6 +134,7 @@ public class EndingGUI extends javax.swing.JFrame {
     private void nextBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBTNActionPerformed
         ResultsGUI resultsGUI = new ResultsGUI(endingCalculation.getSave(), false);
         resultsGUI.setVisible(true);
+        dispose();
         
     }//GEN-LAST:event_nextBTNActionPerformed
 
