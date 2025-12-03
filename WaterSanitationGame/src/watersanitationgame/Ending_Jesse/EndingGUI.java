@@ -17,12 +17,15 @@ public class EndingGUI extends javax.swing.JFrame {
         String endingText;
         Ending ending;
         EndingCalculation endingCalculation;
+        int saveIndex;
     /**
      * Creates new form endingGUI
      */
-    public EndingGUI(int saveIndex) {
+    public EndingGUI(int saveNum) {
+        
         initComponents();
         
+        saveIndex = saveNum;
         endingCalculation = EndingCalculation.getInstance();
         
         endingCalculation.readData(saveIndex);
@@ -135,7 +138,7 @@ public class EndingGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_nextBTNActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PastResultsGUI pResultsGUI = new PastResultsGUI();
+        PastResultsGUI pResultsGUI = new PastResultsGUI(saveIndex);
         pResultsGUI.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

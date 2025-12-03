@@ -27,11 +27,16 @@ public class PastResultsGUI extends javax.swing.JFrame {
     /**
      * Creates new form PastResultsGUI
      */
-    public PastResultsGUI() {
+    public PastResultsGUI(int saveIndex) {
         initComponents();
         endingCalculation = EndingCalculation.getInstance();
+        endingCalculation.readData(saveIndex);
         sList = endingCalculation.getsList();
         selectedSave = null;
+    }
+
+    private PastResultsGUI() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 
@@ -210,8 +215,12 @@ public class PastResultsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_displayBTNActionPerformed
 
     private void viewBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBTNActionPerformed
-        ResultsGUI resultsGUI = new ResultsGUI(selectedSave, true);
-        resultsGUI.setVisible(true);
+        if (selectedSave != null) {   
+            ResultsGUI resultsGUI = new ResultsGUI(selectedSave, true);
+            resultsGUI.setVisible(true);
+        }else {
+            displayTA.setText("Please select a save");
+        }
     }//GEN-LAST:event_viewBTNActionPerformed
 
     private void exitBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTNActionPerformed
@@ -229,7 +238,8 @@ public class PastResultsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_tutorialBTNActionPerformed
 
     private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
-
+        
+        boolean foundSearch = false;
         StringBuffer sBuff = new StringBuffer();
         
         if (playernameRB.isSelected()){
@@ -238,6 +248,7 @@ public class PastResultsGUI extends javax.swing.JFrame {
             
             for (Save tempS: sList){
                 if (tempS.getName().equalsIgnoreCase(searchTerm)){
+                    foundSearch = true;
                     if (displaySaveJOption(tempS)){
                         break;
                     }
@@ -249,6 +260,7 @@ public class PastResultsGUI extends javax.swing.JFrame {
             
             for (Save tempS: sList){
                 if (tempS.getSaveName().equalsIgnoreCase(searchTerm)){
+                    foundSearch = true;
                     if (displaySaveJOption(tempS)){
                         break;
                     }
@@ -259,11 +271,16 @@ public class PastResultsGUI extends javax.swing.JFrame {
             
             for (Save tempS: sList){
                 if (tempS.getCountry().equalsIgnoreCase(searchTerm)){
+                    foundSearch = true;
                     if (displaySaveJOption(tempS)){
                         break;
                     }
                 }
             }
+        }
+        
+        if (!foundSearch){
+            displayTA.setText("There are no saves with that search");
         }
   
     }//GEN-LAST:event_searchBTNActionPerformed

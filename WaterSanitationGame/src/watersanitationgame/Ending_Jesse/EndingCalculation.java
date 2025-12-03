@@ -35,13 +35,16 @@ public final class  EndingCalculation {
     public void readData(int saveIndex){
         
         load();
-        this.save = sList.get(saveIndex);
-        calculateEnding();
+        if (sList.size() != 0) {
+            this.save = sList.get(saveIndex);
+            calculateEnding();
+        }
     }
     
     
     
     public void calculateEnding(){
+        
         
         if (this.save.getGameScore() < 20){
             this.endingType = "Very Bad";
