@@ -209,7 +209,7 @@ public class ResultsGUI extends javax.swing.JFrame {
                 text += "As you prepare to leave the facility, the manager of it shakes your hand and slips a thick envelope into it with a smile. \nOnce outside you manage to check the contents and find a large amount of money, \nenough to keep your personal bills and responsibilities  in check for a season...";
                 text += "\n\n\n";
                 text += "CHOICE: ";
-                if (currentSave.isTookBribe()){
+                if (!currentSave.isTookBribe()){
                     text += "You chose to take a bribe";
                 }else{
                     text += "You rejected the bribe";
