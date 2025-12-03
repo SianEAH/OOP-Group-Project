@@ -19,11 +19,11 @@ Some months later, you notice that you have a scheduled tour coming up for a wat
 no
 The day arrives, and you are toured around by the facility's new manager. He greets you warmly and leads you around the premises. Immediately you come across some employees lounging inside without high visibility vests, which scurry out of sight once they realise you are here.
 no
-You continue the tour, and are shown a large container of chemical solution used for destroying bacteria in water, however, you also spot that the vessel appears quite damaged, as if often re-used, despite the fact that this sort of container should be disposed of and replaced frequently.
+You continue the tour, and are shown a large container of chemical solution used for Cleansing bacteria in water, however, you also spot that the vessel appears quite damaged, as if often re-used, despite the fact that this sort of container should be disposed of and replaced frequently.
 no
 The tour ends with you being shown around the office space, which is rather unkempt, and as you walk, you almost slip on a wet spot of floor, which has not been marked with a wet floor sign.
 input
-As you prepare to leave the facility, the manager of it shakes your hand and slips a thick envelope into it with a smile. Once outside you manage to check the contents and find a large amount of money, enough to keep your personal bills and responsibilities  in check for a season...
+As you prepare to leave the facility, the manager of it shakes your hand and slips a thick envelope into it with a smile. Once outside you manage to check the contents and find a large amount of money, enough to keep your personal bills and responsibilities in check for a season...
 I will not be bribed, this incompetent manager will not stay in control of this plant so long as I have the power to put an end to it.
 Well... Sometimes you must be pragmatic, perhaps it could be the start of a long term business relationship (take the money).
 no
