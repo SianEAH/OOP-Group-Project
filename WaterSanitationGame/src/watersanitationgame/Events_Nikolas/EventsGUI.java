@@ -187,6 +187,7 @@ public class EventsGUI extends javax.swing.JFrame {
 
         ProceedBTN.setBackground(new java.awt.Color(204, 204, 204));
         ProceedBTN.setText("PROCEED");
+        ProceedBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ProceedBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProceedBTNActionPerformed(evt);
@@ -195,6 +196,7 @@ public class EventsGUI extends javax.swing.JFrame {
 
         PositiveBTN.setBackground(new java.awt.Color(204, 204, 204));
         PositiveBTN.setText("positive");
+        PositiveBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PositiveBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PositiveBTNActionPerformed(evt);
@@ -203,6 +205,7 @@ public class EventsGUI extends javax.swing.JFrame {
 
         NegativeBTN.setBackground(new java.awt.Color(204, 204, 204));
         NegativeBTN.setText("negative");
+        NegativeBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         NegativeBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NegativeBTNActionPerformed(evt);
@@ -218,7 +221,7 @@ public class EventsGUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(PositiveBTN)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
                         .addComponent(ProceedBTN)
                         .addGap(309, 309, 309))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -233,7 +236,7 @@ public class EventsGUI extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(161, Short.MAX_VALUE)
+                .addContainerGap(164, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(ProceedBTN)
