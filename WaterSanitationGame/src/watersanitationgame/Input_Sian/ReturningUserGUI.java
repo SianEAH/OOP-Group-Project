@@ -27,7 +27,7 @@ public class ReturningUserGUI extends javax.swing.JFrame {
         initComponents();
         this.userDetails = ud;//get access to my saved users (user details)
         userDetails.loadFromFile(); //load the details from my file (Save)
-        saveIndex = -1;
+        
     }
 
     /**
@@ -268,7 +268,7 @@ public class ReturningUserGUI extends javax.swing.JFrame {
            EndingGUI en = new EndingGUI(saveIndex); //events parameter
            en.setVisible(true);
            dispose();
-           }else{
+        }else{
             JOptionPane.showMessageDialog(null, "Must enter details for save");
         }
     }//GEN-LAST:event_okBTNActionPerformed
@@ -278,22 +278,26 @@ public class ReturningUserGUI extends javax.swing.JFrame {
         //When the search button is clicked, the user details pop up in the text boxes?
         //Make sure the fields are not null
          if (nameTF.getText().isEmpty()) {
-           JOptionPane.showMessageDialog(null, "Please enter a name"); 
+           JOptionPane.showMessageDialog(null, "Please enter a name");
+           saveIndex = -1;
             return;
         } 
         
         if (ageTF.getText().isEmpty()) { 
-           JOptionPane.showMessageDialog(null, "Please enter an age"); 
+           JOptionPane.showMessageDialog(null, "Please enter an age");
+           saveIndex = -1;
             return;
         } 
         
         if (genderTF.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter a gender");
+            saveIndex = -1;
              return;
         } 
         
         if (countryTF.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter a country");
+            saveIndex = -1;
              return;
         }
         
