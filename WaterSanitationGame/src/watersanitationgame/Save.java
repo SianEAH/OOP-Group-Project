@@ -2,7 +2,7 @@ package watersanitationgame;
 
 /**
  *
- * @author Nikolas Misins
+ * @author Nikolas Misins, Jesse Duncan
  */
 
 import java.io.Serializable;
@@ -104,3 +104,4 @@ public class Save implements Serializable{
     
     
 }
+
