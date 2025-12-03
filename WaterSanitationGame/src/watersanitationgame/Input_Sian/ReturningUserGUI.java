@@ -5,7 +5,8 @@
 package watersanitationgame.Input_Sian;
 
 import javax.swing.JOptionPane;
-import watersanitationgame.Events_Nikolas.EventsGUI;
+//import watersanitationgame.Events_Nikolas.EventsGUI;
+import watersanitationgame.Ending_Jesse.EndingGUI;
 import watersanitationgame.Save;
 
 /**
@@ -20,11 +21,13 @@ public class ReturningUserGUI extends javax.swing.JFrame {
      * Creates new form ReturningUser
      */
     private UserDetails userDetails; //need access to the user details to check for the search button
+    private int saveIndex;
     
     public ReturningUserGUI(UserDetails ud) {
         initComponents();
         this.userDetails = ud;//get access to my saved users (user details)
         userDetails.loadFromFile(); //load the details from my file (Save)
+        saveIndex = -1;
     }
 
     /**
@@ -241,29 +244,33 @@ public class ReturningUserGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Check to make sure the user entered details
         //Do not proceed to the next JFrame if the details are empty
-         if (nameTF.getText().isEmpty()) {
-           JOptionPane.showMessageDialog(null, "Please enter a name"); 
-            return;
-        } 
-        
-        if (ageTF.getText().isEmpty()) { 
-           JOptionPane.showMessageDialog(null, "Please enter an age"); 
-            return;
-        } 
-        
-        if (genderTF.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter a gender");
-             return;
-        } 
-        
-        if (countryTF.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter a country");
-             return;
+        if (!(saveIndex == -1)){
+            if (nameTF.getText().isEmpty()) {
+              JOptionPane.showMessageDialog(null, "Please enter a name"); 
+               return;
+           } 
+
+           if (ageTF.getText().isEmpty()) { 
+              JOptionPane.showMessageDialog(null, "Please enter an age"); 
+               return;
+           } 
+
+           if (genderTF.getText().isEmpty()) {
+               JOptionPane.showMessageDialog(null, "Please enter a gender");
+                return;
+           } 
+
+           if (countryTF.getText().isEmpty()) {
+               JOptionPane.showMessageDialog(null, "Please enter a country");
+                return;
+           }
+           //When this button is clicked, proceed onto the events section 
+           EndingGUI en = new EndingGUI(saveIndex); //events parameter
+           en.setVisible(true);
+           dispose();
+           }else{
+            JOptionPane.showMessageDialog(null, "Must enter details for save");
         }
-        //When this button is clicked, proceed onto the events section 
-        EventsGUI n = new EventsGUI(0); //events parameter
-        n.setVisible(true);
-        dispose();
     }//GEN-LAST:event_okBTNActionPerformed
 
     private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
@@ -314,6 +321,7 @@ public class ReturningUserGUI extends javax.swing.JFrame {
                 countryTF.setText(s.getCountry());
 
                 found = true;
+                int saveIndex = userDetails.getSlist().indexOf(s);
                 JOptionPane.showMessageDialog(null, "User found!");
                 break; //come out of the loop
             }
