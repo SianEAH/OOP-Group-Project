@@ -74,6 +74,7 @@ public class EndingGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        endingTA.setEditable(false);
         endingTA.setColumns(20);
         endingTA.setRows(5);
         endingTA.setText("The ending text will display here.\n\n");

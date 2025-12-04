@@ -86,6 +86,7 @@ public class ResultsGUI extends javax.swing.JFrame {
             }
         });
 
+        eventTA.setEditable(false);
         eventTA.setColumns(20);
         eventTA.setRows(5);
         jScrollPane1.setViewportView(eventTA);

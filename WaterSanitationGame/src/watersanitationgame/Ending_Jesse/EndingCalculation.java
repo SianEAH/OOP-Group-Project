@@ -99,9 +99,6 @@ public final class  EndingCalculation {
         System.out.println("Io Exception on load "+e);
         }
         
-        for (Save save: sList){
-            System.out.println(save.getName());
-        }
     }   
     
     
