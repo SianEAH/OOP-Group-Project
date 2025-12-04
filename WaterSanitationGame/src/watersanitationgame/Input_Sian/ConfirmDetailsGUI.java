@@ -202,7 +202,7 @@ public class ConfirmDetailsGUI extends javax.swing.JFrame {
         userDetails.saveToFile();
         
         //Go to the next JFrame
-        EventsGUI e = new EventsGUI(0);  //EventsGUI recquires a parameter
+        EventsGUI e = new EventsGUI(userDetails.getSlist().size()-1);  //EventsGUI recquires a parameter
         e.setVisible(true);
         this.dispose(); //close the window
 
