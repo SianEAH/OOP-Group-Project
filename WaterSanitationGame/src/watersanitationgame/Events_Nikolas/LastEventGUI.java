@@ -43,6 +43,7 @@ public class LastEventGUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 204, 255));
 
         ProceedBTN.setBackground(new java.awt.Color(204, 204, 204));
+        ProceedBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         ProceedBTN.setText("END");
         ProceedBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ProceedBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -64,9 +65,9 @@ public class LastEventGUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(ProceedBTN)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addGap(114, 114, 114)
+                .addComponent(ProceedBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(118, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -77,8 +78,8 @@ public class LastEventGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(171, Short.MAX_VALUE)
-                .addComponent(ProceedBTN)
-                .addGap(23, 23, 23))
+                .addComponent(ProceedBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()

@@ -35,6 +35,8 @@ public class EventsGUI extends javax.swing.JFrame {
         NegativeBTN.setVisible(false);
         slist = new ArrayList<>();
         this.saveIndex = saveIndex;
+        posScrollPane.setVisible(false);
+        negScrollPane.setVisible(false);
     }
 
     private EventsGUI() {
@@ -94,13 +96,19 @@ public class EventsGUI extends javax.swing.JFrame {
                 ProceedBTN.setVisible(false);
                 PositiveBTN.setVisible(true);
                 NegativeBTN.setVisible(true);
+                posScrollPane.setVisible(true);
+                negScrollPane.setVisible(true);
                 
-                PositiveBTN.setText(Elist.get(count).getBtnPos());
-                NegativeBTN.setText(Elist.get(count).getBtnNeg());
+                //PositiveBTN.setText(Elist.get(count).getBtnPos());
+                //NegativeBTN.setText(Elist.get(count).getBtnNeg());
+                posTA.setText(Elist.get(count).getBtnPos());
+                negTA.setText(Elist.get(count).getBtnNeg());
             }else{ //show proceed button
                 ProceedBTN.setVisible(true);
                 PositiveBTN.setVisible(false);
                 NegativeBTN.setVisible(false);
+                posScrollPane.setVisible(false);
+                negScrollPane.setVisible(false);
             }
             //load eventText
             EventTextTA.setText(Elist.get(count).printEventDetails());
@@ -171,6 +179,10 @@ public class EventsGUI extends javax.swing.JFrame {
         ProceedBTN = new javax.swing.JButton();
         PositiveBTN = new javax.swing.JButton();
         NegativeBTN = new javax.swing.JButton();
+        posScrollPane = new javax.swing.JScrollPane();
+        posTA = new javax.swing.JTextArea();
+        negScrollPane = new javax.swing.JScrollPane();
+        negTA = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -178,7 +190,7 @@ public class EventsGUI extends javax.swing.JFrame {
 
         EventTextTA.setEditable(false);
         EventTextTA.setColumns(20);
-        EventTextTA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        EventTextTA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         EventTextTA.setLineWrap(true);
         EventTextTA.setRows(5);
         EventTextTA.setText("You settle into your new position as the water sanitation manger...");
@@ -186,6 +198,7 @@ public class EventsGUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(EventTextTA);
 
         ProceedBTN.setBackground(new java.awt.Color(204, 204, 204));
+        ProceedBTN.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         ProceedBTN.setText("PROCEED");
         ProceedBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ProceedBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -195,8 +208,11 @@ public class EventsGUI extends javax.swing.JFrame {
         });
 
         PositiveBTN.setBackground(new java.awt.Color(204, 204, 204));
-        PositiveBTN.setText("positive");
+        PositiveBTN.setText("Option 1");
         PositiveBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PositiveBTN.setMaximumSize(new java.awt.Dimension(50, 20));
+        PositiveBTN.setMinimumSize(new java.awt.Dimension(50, 20));
+        PositiveBTN.setPreferredSize(new java.awt.Dimension(50, 20));
         PositiveBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PositiveBTNActionPerformed(evt);
@@ -204,13 +220,29 @@ public class EventsGUI extends javax.swing.JFrame {
         });
 
         NegativeBTN.setBackground(new java.awt.Color(204, 204, 204));
-        NegativeBTN.setText("negative");
+        NegativeBTN.setText("Option 2");
         NegativeBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         NegativeBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NegativeBTNActionPerformed(evt);
             }
         });
+
+        posTA.setEditable(false);
+        posTA.setColumns(20);
+        posTA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        posTA.setLineWrap(true);
+        posTA.setRows(5);
+        posTA.setWrapStyleWord(true);
+        posScrollPane.setViewportView(posTA);
+
+        negTA.setEditable(false);
+        negTA.setColumns(20);
+        negTA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        negTA.setLineWrap(true);
+        negTA.setRows(5);
+        negTA.setWrapStyleWord(true);
+        negScrollPane.setViewportView(negTA);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -220,37 +252,40 @@ public class EventsGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(PositiveBTN)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
-                        .addComponent(ProceedBTN)
-                        .addGap(309, 309, 309))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(posScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                                .addComponent(negScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(NegativeBTN)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(53, 53, 53)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
-                    .addGap(54, 54, 54)))
+                        .addGap(95, 95, 95)
+                        .addComponent(PositiveBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(NegativeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(112, 112, 112))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ProceedBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(304, 304, 304))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(164, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(ProceedBTN)
-                        .addGap(83, 83, 83))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(PositiveBTN)
-                        .addGap(28, 28, 28)
-                        .addComponent(NegativeBTN)
-                        .addGap(19, 19, 19))))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(24, 24, 24)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(118, Short.MAX_VALUE)))
+                .addGap(8, 8, 8)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ProceedBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(negScrollPane)
+                    .addComponent(posScrollPane))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PositiveBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NegativeBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -261,9 +296,7 @@ public class EventsGUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -316,5 +349,9 @@ public class EventsGUI extends javax.swing.JFrame {
     private javax.swing.JButton ProceedBTN;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane negScrollPane;
+    private javax.swing.JTextArea negTA;
+    private javax.swing.JScrollPane posScrollPane;
+    private javax.swing.JTextArea posTA;
     // End of variables declaration//GEN-END:variables
 }
