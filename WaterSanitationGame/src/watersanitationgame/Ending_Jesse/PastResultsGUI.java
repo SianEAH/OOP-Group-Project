@@ -62,6 +62,7 @@ public class PastResultsGUI extends javax.swing.JFrame {
         tutorialBTN = new javax.swing.JButton();
         exitBTN = new javax.swing.JButton();
         savenameRB = new javax.swing.JRadioButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,7 +77,10 @@ public class PastResultsGUI extends javax.swing.JFrame {
         countryRB.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         countryRB.setText("Country");
 
+        searchBTN.setBackground(new java.awt.Color(204, 204, 204));
+        searchBTN.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         searchBTN.setText("SEARCH");
+        searchBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         searchBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchBTNActionPerformed(evt);
@@ -88,35 +92,50 @@ public class PastResultsGUI extends javax.swing.JFrame {
         displayTA.setText("Select option below to choose search\nmethod.\n\nOnce a save has been selected it will\napear in this text area. Click DELETE to \ndelete the selected save or VIEW to \nview the results of the save.\n");
         jScrollPane1.setViewportView(displayTA);
 
+        displayBTN.setBackground(new java.awt.Color(204, 204, 204));
+        displayBTN.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         displayBTN.setText("DISPLAY ALL");
+        displayBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         displayBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 displayBTNActionPerformed(evt);
             }
         });
 
+        viewBTN.setBackground(new java.awt.Color(204, 204, 204));
+        viewBTN.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         viewBTN.setText("VIEW");
+        viewBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         viewBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewBTNActionPerformed(evt);
             }
         });
 
+        deleteBTN.setBackground(new java.awt.Color(204, 204, 204));
+        deleteBTN.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         deleteBTN.setText("DELETE");
+        deleteBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         deleteBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteBTNActionPerformed(evt);
             }
         });
 
+        tutorialBTN.setBackground(new java.awt.Color(204, 204, 204));
+        tutorialBTN.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tutorialBTN.setText("SHOW TUTORIAL");
+        tutorialBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tutorialBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tutorialBTNActionPerformed(evt);
             }
         });
 
+        exitBTN.setBackground(new java.awt.Color(204, 204, 204));
+        exitBTN.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         exitBTN.setText("EXIT");
+        exitBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         exitBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitBTNActionPerformed(evt);
@@ -127,43 +146,70 @@ public class PastResultsGUI extends javax.swing.JFrame {
         savenameRB.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         savenameRB.setText("Save Name");
 
+        jPanel1.setBackground(new java.awt.Color(51, 204, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 529, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(searchbyLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(searchBTN))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(exitBTN, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tutorialBTN, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(savenameRB)
-                            .addComponent(displayBTN))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(deleteBTN)
-                                .addGap(18, 18, 18)
-                                .addComponent(viewBTN))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(savenameRB)
                                 .addGap(44, 44, 44)
-                                .addComponent(playernameRB, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57)
+                                .addComponent(playernameRB, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(displayBTN)
+                                .addGap(55, 55, 55)
+                                .addComponent(deleteBTN)))
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(viewBTN)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(countryRB)
-                                .addGap(135, 135, 135)))))
-                .addContainerGap(18, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(148, 148, 148)
+                                .addComponent(searchBTN))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(114, 114, 114)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(72, 72, 72)
+                                        .addComponent(exitBTN))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(tutorialBTN)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(searchbyLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +221,7 @@ public class PastResultsGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(exitBTN)
-                        .addGap(36, 36, 36)
+                        .addGap(34, 34, 34)
                         .addComponent(tutorialBTN)))
                 .addGap(24, 24, 24)
                 .addComponent(searchbyLBL)
@@ -192,6 +238,11 @@ public class PastResultsGUI extends javax.swing.JFrame {
                     .addComponent(deleteBTN)
                     .addComponent(viewBTN))
                 .addGap(36, 36, 36))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
@@ -389,6 +440,7 @@ public class PastResultsGUI extends javax.swing.JFrame {
     private javax.swing.JButton displayBTN;
     private javax.swing.JTextArea displayTA;
     private javax.swing.JButton exitBTN;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton playernameRB;
     private javax.swing.JRadioButton savenameRB;

@@ -61,9 +61,10 @@ public class EndingGUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         endingTA = new javax.swing.JTextArea();
         nextBTN = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         imageLBL = new javax.swing.JLabel();
         scoreLBL = new javax.swing.JLabel();
+        pastresultsBTN = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,44 +74,67 @@ public class EndingGUI extends javax.swing.JFrame {
         endingTA.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(endingTA);
 
+        nextBTN.setBackground(new java.awt.Color(204, 204, 204));
+        nextBTN.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         nextBTN.setText("NEXT");
+        nextBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         nextBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextBTNActionPerformed(evt);
             }
         });
 
-        jButton1.setText("VIEW PAST RESULTS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        scoreLBL.setText("Score: ");
+
+        pastresultsBTN.setBackground(new java.awt.Color(204, 204, 204));
+        pastresultsBTN.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        pastresultsBTN.setText("DISPLAY PAST RESULTS");
+        pastresultsBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pastresultsBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                pastresultsBTNActionPerformed(evt);
             }
         });
 
-        scoreLBL.setText("Score: ");
+        jPanel2.setBackground(new java.awt.Color(51, 204, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 736, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 341, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(imageLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(233, 233, 233))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(jButton1)
-                        .addGap(170, 170, 170)
+                        .addGap(191, 191, 191)
+                        .addComponent(pastresultsBTN)
+                        .addGap(181, 181, 181)
                         .addComponent(nextBTN))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(340, 340, 340)
                         .addComponent(scoreLBL))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(216, 216, 216)
+                        .addComponent(imageLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(124, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,13 +143,18 @@ public class EndingGUI extends javax.swing.JFrame {
                 .addComponent(scoreLBL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(imageLBL, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(nextBTN))
-                .addGap(38, 38, 38))
+                    .addComponent(nextBTN)
+                    .addComponent(pastresultsBTN))
+                .addGap(36, 36, 36))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
@@ -138,10 +167,10 @@ public class EndingGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_nextBTNActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void pastresultsBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pastresultsBTNActionPerformed
         PastResultsGUI pResultsGUI = new PastResultsGUI(saveIndex);
         pResultsGUI.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_pastresultsBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,9 +200,10 @@ public class EndingGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea endingTA;
     private javax.swing.JLabel imageLBL;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton nextBTN;
+    private javax.swing.JButton pastresultsBTN;
     private javax.swing.JLabel scoreLBL;
     // End of variables declaration//GEN-END:variables
 }
