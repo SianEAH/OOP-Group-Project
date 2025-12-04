@@ -177,11 +177,13 @@ public class ResultsGUI extends javax.swing.JFrame {
                 if (choice1 == 0){
                     saveName = JOptionPane.showInputDialog("What do you want to name your save?");
                     currentSave.setSaveName(saveName);
-                    endingCalculation.getsList().add(currentSave);
                     
                     endingCalculation.save();
+                }else if(choice1 == 1)
+                {
+                    endingCalculation.getsList().remove(currentSave);
                 }
-
+            
                 choice2 = JOptionPane.showConfirmDialog(null, "Do you want to quit?", null , 1);
 
                 if (choice2 == 0){
@@ -191,8 +193,9 @@ public class ResultsGUI extends javax.swing.JFrame {
                     welcomeGUI.setVisible(true);
                     dispose();
                 }
-            }else{
-                
+            
+            }else
+            {
                 dispose();
             }
 

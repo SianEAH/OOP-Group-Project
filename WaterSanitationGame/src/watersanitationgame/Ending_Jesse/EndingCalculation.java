@@ -56,6 +56,8 @@ public final class  EndingCalculation {
             this.endingType = "Good";
         }else if (this.save.getGameScore() <= 100){
             this.endingType = "Very Good";
+        }else{
+            this.endingType = "unknown";
         }
         
     }
@@ -76,9 +78,8 @@ public final class  EndingCalculation {
     }
     
     public void load(){
-        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("saves.dat"))) {
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Saves.dat"))) {
         sList = (ArrayList<Save>)ois.readObject();
-            System.out.println("File read in");
         }catch(FileNotFoundException e){
             System.out.println("File not found "+e);
         }catch(ClassNotFoundException e){
@@ -86,15 +87,20 @@ public final class  EndingCalculation {
         }catch(IOException e){
             System.out.println("Io Exception on load "+e);
         }
+        
+        
     }
 
     public void save(){
         
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("saves.dat"))){
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Saves.dat"))){
             oos.writeObject(sList);
-            System.out.println("Written to file");
         }catch(IOException e){
         System.out.println("Io Exception on load "+e);
+        }
+        
+        for (Save save: sList){
+            System.out.println(save.getName());
         }
     }   
     

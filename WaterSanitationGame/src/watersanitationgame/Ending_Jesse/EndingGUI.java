@@ -4,8 +4,8 @@
  */
 package watersanitationgame.Ending_Jesse;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import watersanitationgame.Save;
 
 /**
  *
@@ -18,6 +18,11 @@ public class EndingGUI extends javax.swing.JFrame {
         Ending ending;
         EndingCalculation endingCalculation;
         int saveIndex;
+        
+        
+        
+    
+
     /**
      * Creates new form endingGUI
      */
@@ -29,7 +34,6 @@ public class EndingGUI extends javax.swing.JFrame {
         endingCalculation = EndingCalculation.getInstance();
         
         endingCalculation.readData(saveIndex);
-        endingCalculation.getsList().remove(endingCalculation.getSave());
         endingCalculation.save();
         ending = endingCalculation.createEnding();
         
@@ -42,6 +46,8 @@ public class EndingGUI extends javax.swing.JFrame {
         imageLBL.setIcon(image);
         
         scoreLBL.setText("Score: "+endingCalculation.getSave().getGameScore() + "/100");
+        
+        
         
     }
 
