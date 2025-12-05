@@ -21,10 +21,10 @@ import watersanitationgame.Save;
 public class EventsGUI extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EventsGUI.class.getName());
     //variables
-    private ArrayList<EventOb> Elist; //
-    private ArrayList<Save> slist;
-    private int count, saveIndex;
-    private boolean loaded; //tracks whether event data(text) has been loaded in
+    private ArrayList<EventOb> Elist; //list of Events, each event holds it's text(string), whether it require input(boolean) and the text for the options to choose from if it is an input event
+    private ArrayList<Save> slist; //ArrayList of Save Classes, to be loaded in from Saves.dat
+    private int count, saveIndex; //count is used to track which event the program is currently using, and also as a temporary counter when loading in event data. saveIndex is the index of which save is being accessed in the ArrayList slist
+    private boolean loaded; //tracks whether event data(text) has been loaded in, is only done once
     
     public EventsGUI(int saveIndex) {
         initComponents();
@@ -39,7 +39,7 @@ public class EventsGUI extends javax.swing.JFrame {
         negScrollPane.setVisible(false);
     }
 
-    private EventsGUI() {
+    private EventsGUI() { //to support a constructor with saveIndex in it, it was mandatory to create this empty constructor too
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
@@ -54,17 +54,18 @@ public class EventsGUI extends javax.swing.JFrame {
             fr = new FileReader(f);
             br = new BufferedReader(fr);
             textData = br.readLine();
+            
             while(textData != null){
                 if (textData.equalsIgnoreCase("input")){
                     //in the eventDetails.txt, data follows this format, line by line: isInputEvent->EventText->positiveButtonText->NegativeButtonText
                     textData = br.readLine();
                     posBtnText = br.readLine();
                     negBtnText = br.readLine();
-                    EventOb e = new EventOb(true, textData,count,posBtnText,negBtnText);
+                    EventOb e = new EventOb(true, textData,count,posBtnText,negBtnText); 
                     Elist.add(e);
                 }else{
                     textData = br.readLine();
-                    EventOb e = new EventOb(false, textData,count);
+                    EventOb e = new EventOb(false, textData,count);//use of different constructors depending on what kind of event it is
                     Elist.add(e);
                 }
                 count+=1;
@@ -75,7 +76,7 @@ public class EventsGUI extends javax.swing.JFrame {
         }catch(IOException e){
             System.out.println("Error code: " + e);
         }
-        loaded=true;
+        loaded=true; //once loaded, this flag flips true and the method isnt called again
     }
     
     //loads saved data file, is called multiple times throughout program
@@ -89,8 +90,9 @@ public class EventsGUI extends javax.swing.JFrame {
         }  
     }
     
+    //this method is what displays event text on the screen, and shows the options to choose from(if any) and also controls which buttons are visible on the screen
     private void loadEvent(){
-        if ((count<Elist.size())){ //bottom check runs only if there are more events to go through, otherwise it opens a new Jframe form
+        if ((count<Elist.size())){ //loops meanwhile there are still events to show
             if(Elist.get(count).isIsInputEvent()){ //if InputEvent, show choice buttons
                 
                 ProceedBTN.setVisible(false);
@@ -99,8 +101,6 @@ public class EventsGUI extends javax.swing.JFrame {
                 posScrollPane.setVisible(true);
                 negScrollPane.setVisible(true);
                 
-                //PositiveBTN.setText(Elist.get(count).getBtnPos());
-                //NegativeBTN.setText(Elist.get(count).getBtnNeg());
                 posTA.setText(Elist.get(count).getBtnPos());
                 negTA.setText(Elist.get(count).getBtnNeg());
             }else{ //show proceed button
@@ -110,10 +110,10 @@ public class EventsGUI extends javax.swing.JFrame {
                 posScrollPane.setVisible(false);
                 negScrollPane.setVisible(false);
             }
-            //load eventText
+            //regardless of whether it is an input event or not, event text must be shown
             EventTextTA.setText(Elist.get(count).printEventDetails());
         }else{
-            //open new Jframe form
+            //once all events have been exhausted, the program opens a new GUI and disposes of EventsGUI
             LastEventGUI leg = new LastEventGUI(saveIndex);
             leg.setVisible(true);
             dispose();
@@ -138,7 +138,7 @@ public class EventsGUI extends javax.swing.JFrame {
     
     //updates the save file with SPECIFIC infortmation about what the user chose to do
     private void updateDecisions(boolean choice){
-        switch(count){ //switch case 0 is the default event you start with, and 1 is the first event in the .txt
+        switch(count){ //switch case 0 is the text that already exists in the jframe, so case 1 is the first event in eventDetails.txt
             case 2:
                 slist.get(saveIndex).setBeganSafetyInspections(choice);
                 break;
@@ -307,16 +307,21 @@ public class EventsGUI extends javax.swing.JFrame {
         if (!loaded){
             loadEventData();
         }
+        //load next event
         loadEvent();
     }//GEN-LAST:event_ProceedBTNActionPerformed
 
     private void PositiveBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PositiveBTNActionPerformed
-        updatePos(); //updates user score positively
+        //updates user score positively
+        updatePos(); 
+        //load next event
         loadEvent();
     }//GEN-LAST:event_PositiveBTNActionPerformed
 
     private void NegativeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NegativeBTNActionPerformed
-        updateNeg(); //updates user score negatively
+        //updates user score negatively
+        updateNeg(); 
+        //load next event
         loadEvent();
     }//GEN-LAST:event_NegativeBTNActionPerformed
 
