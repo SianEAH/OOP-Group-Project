@@ -14,10 +14,10 @@ import watersanitationgame.Save;
 public class EndingGUI extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EndingGUI.class.getName());
-        String endingText;
-        Ending ending;
-        EndingCalculation endingCalculation;
-        int saveIndex;
+        private String endingText;
+        private Ending ending;
+        private EndingCalculation endingCalculation;
+        private int saveIndex;
         
         
         
