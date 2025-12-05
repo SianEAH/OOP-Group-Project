@@ -21,8 +21,8 @@ import watersanitationgame.Save;
 public class EventsGUI extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EventsGUI.class.getName());
     //variables
-    ArrayList<EventOb> Elist; //
-    ArrayList<Save> slist;
+    private ArrayList<EventOb> Elist; //
+    private ArrayList<Save> slist;
     private int count, saveIndex;
     private boolean loaded; //tracks whether event data(text) has been loaded in
     
